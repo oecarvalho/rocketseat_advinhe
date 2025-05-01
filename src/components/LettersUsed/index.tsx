@@ -7,20 +7,24 @@ export type LetterUsedProps = {
     correct: boolean
 }
 
-type Props ={
+type Props = {
     data: LetterUsedProps[];
 }
 
-export function LettersUsed(){
+export function LettersUsed({data}: Props){
     return(
         <div className={style.lettersUsed}>
             <h5>Letras Utilizadas</h5>
 
             <div>
-                <Letter value='X' size='small' color='correct'/>
-                <Letter value='A' size='small' color='wrong'/>
-                <Letter value='Q' size='small' color='wrong'/>
-                <Letter value='C' size='small' color='wrong'/>
+                {data.map(({value, correct})=>(
+                    <Letter 
+                        key={value} 
+                        value={value} 
+                        size='small' 
+                        color={correct ? "correct" : "wrong"}   
+                    />
+                ))}
             </div>
         </div>
     )
