@@ -2,6 +2,15 @@ import style from './style.module.css'
 
 import { Letter } from '../Letter'
 
+export type LetterUsedProps = {
+    value: string,
+    correct: boolean
+}
+
+type Props ={
+    data: LetterUsedProps[];
+}
+
 export function LettersUsed(){
     return(
         <div className={style.lettersUsed}>
